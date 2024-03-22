@@ -22,6 +22,7 @@ requirements:
     - python >=3.6
     - pip
     - setuptools
+    - wheel
   run:
     - python >=3.6
     - networkx
@@ -31,6 +32,7 @@ requirements:
 test:
   commands:
     - conda-tree -h
+    - pip check 
 
 about:
   home: https://github.com/rvalieris/conda-tree
