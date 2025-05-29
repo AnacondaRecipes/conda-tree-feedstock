@@ -21,6 +21,7 @@ requirements:
     - python
     - pip
     - setuptools
+    - wheel
   run:
     - python
     - networkx
@@ -37,6 +38,8 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: conda dependency tree helper
+  description: |
+    conda dependency tree helper
   dev_url: https://github.com/rvalieris/conda-tree
   doc_url: https://github.com/rvalieris/conda-tree
 
