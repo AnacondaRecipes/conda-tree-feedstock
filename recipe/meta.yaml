@@ -1,47 +1,50 @@
 {% set name = "conda-tree" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/rvalieris/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: e56ffb0389a7d74a9b89f9ceda3359063d19ed0795d88555f17c41c9fcee645e
+  url: https://github.com/conda-incubator/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: ebb5e1b2120197a4caa4fd6a91b4fe6eaea64b4380cdf4f12efb067d17a971a1
 
 build:
   number: 0
-  skip: true #[py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
-    - conda-tree = conda_tree:main
+    - conda-tree = conda_tree.cli:main
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - hatchling
   run:
     - python
-    - networkx
-    - conda
+    # pins from https://github.com/conda-incubator/conda-tree/blob/1.2.0/recipe.yaml#L29-L30
+    - networkx >=2.0
+    - conda >=25.0
     - colorama
 
 test:
   commands:
     - conda-tree -h
+    - pip check
+  requires:
+    - pip
 
 about:
-  home: https://github.com/rvalieris/conda-tree
+  home: https://github.com/conda-incubator/conda-tree
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: conda dependency tree helper
   description: |
     conda dependency tree helper
-  dev_url: https://github.com/rvalieris/conda-tree
-  doc_url: https://github.com/rvalieris/conda-tree
+  dev_url: https://github.com/conda-incubator/conda-tree
+  doc_url: https://github.com/conda-incubator/conda-tree
 
 extra:
   recipe-maintainers:
