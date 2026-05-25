@@ -14,7 +14,7 @@ build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
-    - conda-tree = conda_tree:main
+    - conda-tree = conda_tree.cli:main
 
 requirements:
   host:
