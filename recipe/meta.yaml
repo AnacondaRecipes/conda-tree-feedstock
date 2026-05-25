@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  #[py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - conda-tree = conda_tree:main
@@ -20,12 +20,12 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
-- hatchling
+    - hatchling
   run:
     - python
-    - networkx
-    - conda
+    # pins from https://github.com/conda-incubator/conda-tree/blob/1.2.0/recipe.yaml#L29-L30
+    - networkx >=2.0
+    - conda >=25.0
     - colorama
 
 test:
@@ -36,24 +36,15 @@ test:
     - pip
 
 about:
-  home: https://github.com/rvalieris/conda-tree
+  home: https://github.com/conda-incubator/conda-tree
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: conda dependency tree helper
   description: |
     conda dependency tree helper
-  dev_url: https://github.com/rvalieris/conda-tree
-about:
-home: https://github.com/conda-incubator/conda-tree
-license: MIT
-license_family: MIT
-license_file: LICENSE
-summary: conda dependency tree helper
-description: |
-   conda dependency tree helper
- dev_url: https://github.com/conda-incubator/conda-tree
-doc_url: https://github.com/conda-incubator/conda-tree
+  dev_url: https://github.com/conda-incubator/conda-tree
+  doc_url: https://github.com/conda-incubator/conda-tree
 
 extra:
   recipe-maintainers:
