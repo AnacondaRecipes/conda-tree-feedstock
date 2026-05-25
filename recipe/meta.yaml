@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/rvalieris/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/conda-incubator//{{ name }}/archive/v{{ version }}.tar.gz
   sha256: ebb5e1b2120197a4caa4fd6a91b4fe6eaea64b4380cdf4f12efb067d17a971a1
 
 build:
