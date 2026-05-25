@@ -21,7 +21,7 @@ requirements:
     - python
     - pip
     - setuptools
-    - wheel
+- hatchling
   run:
     - python
     - networkx
